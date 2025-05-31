@@ -17,11 +17,6 @@ class MatriculasView(View):
         matriculas = Matricula.objects.all()
         return render(request, 'matricula.html', {'matriculas': matriculas})
 
-class CidadesView(View):
-    def get(self, request, *args, **kwargs):
-        cidades = Cidade.objects.all()
-        return render(request, 'cidade.html', {'cidades': cidades})
-
 class PessoasView(View):
     def get(self, request, *args, **kwargs):
         pessoas = Pessoa.objects.all()
@@ -47,16 +42,6 @@ class AvaliacoesView(View):
         avaliacoes = Avaliacao.objects.all()
         return render(request, 'avaliacao.html', {'avaliacoes': avaliacoes})
 
-class OcupacoesView(View):
-    def get(self, request, *args, **kwargs):
-        ocupacoes = Ocupacao.objects.all()
-        return render(request, 'ocupacao.html', {'ocupacoes': ocupacoes})
-
-class TurnosView(View):
-    def get(self, request, *args, **kwargs):
-        turnos = Turno.objects.all()
-        return render(request, 'turno.html', {'turnos': turnos})
-
 class TurmasView(View):
     def get(self, request, *args, **kwargs):
         turmas = Turma.objects.all()
@@ -67,7 +52,3 @@ class OcorrenciasView(View):
         ocorrencias = Ocorrencia.objects.all()
         return render(request, 'ocorrencia.html', {'ocorrencias': ocorrencias})
     
-class AreaSaberView(View):
-    def get(self, request, *args, **kwargs):
-        areas = AreaSaber.objects.all()
-        return render(request, 'area_saber.html', {'areas': areas})
