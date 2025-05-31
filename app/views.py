@@ -66,3 +66,4 @@ class OcorrenciasView(View):
     def get(self, request, *args, **kwargs):
         ocorrencias = Ocorrencia.objects.all()
         return render(request, 'ocorrencia.html', {'ocorrencias': ocorrencias})
+
