@@ -6,7 +6,7 @@ from django.views import View
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'index.html')
-
+    
 class CursosView(View):
     def get(self, request, *args, **kwargs):
         cursos = Curso.objects.all()
@@ -66,4 +66,8 @@ class OcorrenciasView(View):
     def get(self, request, *args, **kwargs):
         ocorrencias = Ocorrencia.objects.all()
         return render(request, 'ocorrencia.html', {'ocorrencias': ocorrencias})
-
+    
+class AreaSaberView(View):
+    def get(self, request, *args, **kwargs):
+        areas = AreaSaber.objects.all()
+        return render(request, 'area_saber.html', {'areas': areas})

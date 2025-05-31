@@ -62,9 +62,9 @@ class AreaSaber(models.Model):
     def __str__(self):
         return self.nome
 
-    class Meta:
-        verbose_name = "Área do Saber"
-        verbose_name_plural = "Áreas do Saber"
+    #class Meta:
+        #verbose_name = "Área do Saber"
+        #verbose_name_plural = "Áreas do Saber"
 
 # RF05 - Cursos
 class Curso(models.Model):

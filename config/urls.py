@@ -6,8 +6,8 @@ from app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('pessoas/', PessoasView.as_view(), name='pessoas'),
-    path('matriculas/', MatriculasView.as_view(), name='matriculas'),
+    path('pessoa/', PessoasView.as_view(), name='pessoa'),
+    path('matricula/', MatriculasView.as_view(), name='matricula'),
     path('cidade/', CidadesView.as_view(), name='cidade'),
     path('ocupacao/', OcupacoesView.as_view(), name='ocupacao'),
     path('instituicao/', InstituicoesView.as_view(), name='instituicao'),
@@ -18,5 +18,6 @@ urlpatterns = [
     path('frequencia/', FrequenciasView.as_view(), name='frequencia'),
     path('turma/', TurmasView.as_view(), name='turma'),
     path('ocorrencia/', OcorrenciasView.as_view(), name='ocorrencia'),
+    path('area_saber/', AreaSaberView.as_view(), name='area_saber'),
 ]
 
