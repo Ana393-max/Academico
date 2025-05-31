@@ -12,6 +12,7 @@ class Cidade(models.Model):
         verbose_name = "Cidade"
         verbose_name_plural = "Cidades"
 
+
 # RF02 - Ocupações
 class Ocupacao(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome da ocupação")
@@ -22,6 +23,7 @@ class Ocupacao(models.Model):
     class Meta:
         verbose_name = "Ocupação"
         verbose_name_plural = "Ocupações"
+
 
 # RF01 - Pessoas
 class Pessoa(models.Model):
@@ -41,6 +43,7 @@ class Pessoa(models.Model):
         verbose_name = "Pessoa"
         verbose_name_plural = "Pessoas"
 
+
 # RF03 - Instituições de Ensino
 class InstituicaoEnsino(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome da instituição")
@@ -55,6 +58,7 @@ class InstituicaoEnsino(models.Model):
         verbose_name = "Instituição de Ensino"
         verbose_name_plural = "Instituições de Ensino"
 
+
 # RF04 - Áreas do Saber
 class AreaSaber(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome da área")
@@ -62,9 +66,10 @@ class AreaSaber(models.Model):
     def __str__(self):
         return self.nome
 
-    #class Meta:
-        #verbose_name = "Área do Saber"
-        #verbose_name_plural = "Áreas do Saber"
+    class Meta:
+        verbose_name = "Área do Saber"
+        verbose_name_plural = "Áreas do Saber"
+
 
 # RF05 - Cursos
 class Curso(models.Model):
@@ -81,6 +86,7 @@ class Curso(models.Model):
         verbose_name = "Curso"
         verbose_name_plural = "Cursos"
 
+
 # RF06 - Turnos
 class Turno(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome do turno")
@@ -91,6 +97,7 @@ class Turno(models.Model):
     class Meta:
         verbose_name = "Turno"
         verbose_name_plural = "Turnos"
+
 
 # RF07 - Disciplinas
 class Disciplina(models.Model):
@@ -103,6 +110,7 @@ class Disciplina(models.Model):
     class Meta:
         verbose_name = "Disciplina"
         verbose_name_plural = "Disciplinas"
+
 
 # RF08 - Matrículas
 class Matricula(models.Model):
@@ -119,13 +127,26 @@ class Matricula(models.Model):
         verbose_name = "Matrícula"
         verbose_name_plural = "Matrículas"
 
+
+# RF15 - Tipos de Avaliação
+class AvaliacaoTipo(models.Model):
+    nome = models.CharField(max_length=100, verbose_name="Nome do tipo de avaliação")
+
+    def __str__(self):
+        return self.nome
+
+    class Meta:
+        verbose_name = "Tipo de Avaliação"
+        verbose_name_plural = "Tipos de Avaliação"
+
+
 # RF09 - Avaliações
 class Avaliacao(models.Model):
     descricao = models.CharField(max_length=200, verbose_name="Descrição")
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, verbose_name="Curso")
     disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE, verbose_name="Disciplina")
     nota = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Nota")
-    avaliacao_tipo = models.ForeignKey('AvaliacaoTipo', on_delete=models.CASCADE, verbose_name="Tipo de avaliação")
+    avaliacao_tipo = models.ForeignKey(AvaliacaoTipo, on_delete=models.CASCADE, verbose_name="Tipo de avaliação")
 
     def __str__(self):
         return self.descricao
@@ -133,6 +154,7 @@ class Avaliacao(models.Model):
     class Meta:
         verbose_name = "Avaliação"
         verbose_name_plural = "Avaliações"
+
 
 # RF10 - Frequência
 class Frequencia(models.Model):
@@ -148,6 +170,7 @@ class Frequencia(models.Model):
         verbose_name = "Frequência"
         verbose_name_plural = "Frequências"
 
+
 # RF11 - Turmas
 class Turma(models.Model):
     nome = models.CharField(max_length=100, verbose_name="Nome da turma")
@@ -159,6 +182,7 @@ class Turma(models.Model):
     class Meta:
         verbose_name = "Turma"
         verbose_name_plural = "Turmas"
+
 
 # RF13 - Ocorrências
 class Ocorrencia(models.Model):
@@ -175,6 +199,7 @@ class Ocorrencia(models.Model):
         verbose_name = "Ocorrência"
         verbose_name_plural = "Ocorrências"
 
+
 # RF14 - Disciplinas por Curso com Turno
 class CursoDisciplina(models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, verbose_name="Curso")
@@ -189,14 +214,3 @@ class CursoDisciplina(models.Model):
     class Meta:
         verbose_name = "Disciplina por Curso"
         verbose_name_plural = "Disciplinas por Curso"
-
-# RF15 - Tipos de Avaliação
-class AvaliacaoTipo(models.Model):
-    nome = models.CharField(max_length=100, verbose_name="Nome do tipo de avaliação")
-
-    def __str__(self):
-        return self.nome
-
-    class Meta:
-        verbose_name = "Tipo de Avaliação"
-        verbose_name_plural = "Tipos de Avaliação"
