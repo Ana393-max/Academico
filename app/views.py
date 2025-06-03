@@ -71,3 +71,13 @@ class TurnoView(View):
     def get(self, request, *args, **kwargs):
         turnos = Turno.objects.all()
         return render(request, 'turno.html', {'turnos': turnos})
+    
+class DisciplinasPorCursoView(View):
+    def get(self, request, *args, **kwargs):
+        cursos = Curso.objects.prefetch_related('disciplinas').all()
+        return render(request, 'disciplinas_por_curso.html', {'cursos': cursos})
+
+class TiposAvaliacaoView(View):
+    def get(self, request, *args, **kwargs):
+        tipos = AvaliacaoTipo.objects.all()
+        return render(request, 'tipos_avaliacao.html', {'tipos': tipos})
